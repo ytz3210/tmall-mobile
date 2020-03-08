@@ -20,7 +20,7 @@ import {
     Toast
 } from 'vant';
 
-const baseApi = process.env.VUE_APP_BASE_API
+const baseApi = process.env.VUE_APP_IMG_BASE_URL
 
 export default {
     components: {
@@ -115,7 +115,7 @@ export default {
                 }
                 imgList.push({
                     url: url,
-                    path: baseApi + '/file/getImgStream?idFile=' + bannerList[i].idFile
+                    path: baseApi + bannerList[i].idFile
                 })
             }
             this.banners = imgList
@@ -127,7 +127,7 @@ export default {
                 this.total = response.data.total
                 for (var index in  list) {
                     const item = list[index]
-                    item.img = baseApi + '/file/getImgStream?idFile=' + item.pic
+                    item.img = baseApi + item.pic
                 }
                 this.goodsList = list
 

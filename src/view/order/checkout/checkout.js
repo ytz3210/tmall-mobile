@@ -1,7 +1,7 @@
 import order  from '@/api/orders'
 import {Card, Cell, CellGroup, Checkbox, CheckboxGroup, NavBar, SubmitBar, Tabbar, TabbarItem, Toast} from 'vant';
 import storage from '@/utils/storage'
-const baseApi = process.env.VUE_APP_BASE_API
+const baseApi = process.env.VUE_APP_IMG_BASE_URL
 export default {
     components: {
         [Card.name]: Card,
@@ -53,7 +53,7 @@ export default {
                 let cartList = response.data.list
                 this.addr = response.data.addr
                 for (let index in cartList) {
-                    cartList[index].thumb = baseApi+ '/file/getImgStream?idFile=' + cartList[index].goods.pic
+                    cartList[index].thumb = baseApi + cartList[index].goods.pic
                     this.checkedGoods.push(cartList[index].id + '')
                 }
                 this.cartList = cartList

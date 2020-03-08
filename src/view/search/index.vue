@@ -27,7 +27,7 @@
 
 <script>
     import goods from '@/api/goods'
-    const baseApi = process.env.VUE_APP_BASE_API
+    const baseApi = process.env.VUE_APP_IMG_BASE_URL
     import {
         Divider,
         List,
@@ -92,7 +92,7 @@
                     let list = response.data.records
                     for(var index in  list){
                         const item = list[index]
-                        item.img = baseApi+'/file/getImgStream?idFile=' + item.pic
+                        item.img = baseApi + item.pic
                     }
                     this.goodsList = list
                     this.loading=false
@@ -108,7 +108,7 @@
                     let list = response.data
                     for(var index in  list){
                         const item = list[index]
-                        item.img = baseApi+'/file/getImgStream?idFile=' + item.pic
+                        item.img = baseApi + item.pic
                     }
                     this.goodsList = list
                     this.loading=false

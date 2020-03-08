@@ -2,7 +2,7 @@ import userApi from '@/api/user'
 import {Button, Cell, CellGroup, Field, Image, NavBar, Toast, Uploader} from 'vant'
 import store from '@/store'
 
-const baseApi = process.env.VUE_APP_BASE_API
+const baseApi = process.env.VUE_APP_IMG_BASE_URL
 export default {
     components: {
         [Button.name]: Button,
@@ -26,7 +26,7 @@ export default {
         init() {
             this.user = store.state.app.user
             if (this.user.avatar) {
-                this.avatarUrl = baseApi + '/file/getImgStream?idFile=' + this.user.avatar
+                this.avatarUrl = baseApi + this.user.avatar
             }
         },
         onClickLeft() {
@@ -41,7 +41,7 @@ export default {
             }).then(response => {
                 //更新用户信息
                 store.dispatch('app/toggleUser', response.data)
-                this.avatarUrl = baseApi + '/file/getImgStream?idFile=' + response.data.avatar
+                this.avatarUrl = baseApi + response.data.avatar
             })
         }
     }

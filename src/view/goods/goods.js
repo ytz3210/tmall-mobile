@@ -21,7 +21,7 @@ import {
     Button
 } from 'vant';
 
-const baseApi = process.env.VUE_APP_BASE_API
+const baseApi = process.env.VUE_APP_IMG_BASE_URL
 
 export default {
     components: {
@@ -86,10 +86,10 @@ export default {
                 sku.price = (sku.price / 100).toFixed(2)
                 this.sku = sku
                 goods.thumb = new Array()
-                goods.picture = baseApi + '/file/getImgStream?idFile=' +goods.pic
+                goods.picture = baseApi + goods.pic
                 const gallery = goods.gallery.split(',')
                 for (var index in gallery) {
-                    goods.thumb.push(baseApi + '/file/getImgStream?idFile=' + gallery[index])
+                    goods.thumb.push(baseApi + gallery[index])
                 }
                 this.goods = goods
 

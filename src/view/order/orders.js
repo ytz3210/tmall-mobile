@@ -1,6 +1,6 @@
  import order  from '@/api/orders'
 import { Row, Col,Checkbox, CheckboxGroup, Card, SubmitBar, Toast, NavBar, Tab,Tabs,Tabbar, TabbarItem,Panel,List,Button    } from 'vant';
- const baseApi = process.env.VUE_APP_BASE_API
+ const baseApi = process.env.VUE_APP_IMG_BASE_URL
 
 export default {
     components: {
@@ -35,7 +35,7 @@ export default {
             activeFooter: 3,
             checkedGoods: ['1'],
             goods: [ ],
-            imgUrl:baseApi+'/file/getImgStream?idFile=',
+            imgUrl:baseApi,
             listQuery: {
                 page: 1,
                 limit: 20,

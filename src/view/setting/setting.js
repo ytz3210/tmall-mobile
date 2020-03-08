@@ -5,7 +5,7 @@ import storage  from '@/utils/storage'
 
 import {Button, Cell, CellGroup, Col, Icon, Image, NavBar, Popup, Radio, RadioGroup, Row, Toast} from 'vant';
 
-const baseApi = process.env.VUE_APP_BASE_API
+const baseApi = process.env.VUE_APP_IMG_BASE_URL
 export default {
     components: {
         [Row.name]: Row,
@@ -37,7 +37,7 @@ export default {
             this.user =storage.getUser()// store.state.app.user
             console.log('useraaaa',this.user)
             if (this.user.avatar) {
-                this.avatarUrl = baseApi + '/file/getImgStream?idFile=' + this.user.avatar
+                this.avatarUrl = baseApi + this.user.avatar
             }
         },
         onClickLeft() {

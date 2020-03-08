@@ -1,7 +1,7 @@
 import topicApi from '@/api/topic'
 import {Cell, CellGroup, Row, Col, Icon, Tabbar, TabbarItem, Tag, Toast, Image} from 'vant';
 
-const baseApi = process.env.VUE_APP_BASE_API
+const baseApi = process.env.VUE_APP_IMG_BASE_URL
 
 export default {
     components: {
@@ -39,7 +39,7 @@ export default {
                 this.topic = response.data
                 let goodsList = response.data.goodsList
                 for(const i in goodsList){
-                    goodsList[i].img = baseApi + '/file/getImgStream?idFile=' +goodsList[i].pic
+                    goodsList[i].img = baseApi + goodsList[i].pic
                 }
                 this.goodsList = goodsList
             }).catch((err) => {
